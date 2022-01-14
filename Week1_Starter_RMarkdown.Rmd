@@ -68,6 +68,8 @@ grades[3] + x
 
 **Question**
 What's the difference between the R Console and R Script? 
+R script is where you put code you care about and that works/does what you want
+R console is where you can experiment
 
 ## Getting familiar with coding in R
 Here, we'll get familiar with R by practicing a few ways in which you can use R. 
@@ -83,15 +85,30 @@ Here, we'll get familiar with R by practicing a few ways in which you can use R.
 ```
 **Question**
 What's the difference between `=` and `==` in R?
+== tests for equality, = is used for assignment
 
 HW: Some practice  
 In the R code chunk below:  
 1. Create a variable called `x` and assign it a value that is the sum of 3+4. Print x to verify that the variable has been stored correctly. Where else can you check to be sure?  
+You can also check the Environment in the top right in the values chart
 2. Now create a vector called y of several values -  3,4,5,8,7. Print y to verify that the vector has been stored correctly.  
 3. How would you determine what the value is of the third element of vector `y`?  
-4. What happens when you add x and y together?  
-5. What is the result of `x > y`?  
+y[3]
+4. What happens when you add x and y together? 
+Adds 7 to each of the numbers in the vector for y
+5. What is the result of `x > y`? 
+TRUE TRUE TRUE FALSE FALSE
 ```{r}
+x <- 3 + 4
+print(x)
+
+y <- c(3, 4, 5, 8, 7)
+print(y)
+y[3]
+
+x + y
+
+x > y
 
 ```
 
@@ -112,12 +129,22 @@ Describe the differences between the two chunks of code above. Is there a anothe
 HW: Some practice  
 In the R chunk below:  
 1. Store the data frame above into a variable called `student.ages`  
-2. How would you determine the age of the fourth student?  
+2. How would you determine the age of the fourth student?  student,agesages[4]
 3. Add a new column `gender` to the data frame with the students' gender identities, which are: Female, Male, Male, Female, Male.  
 4. How would you extract the ages of male students into a new vector called `male.ages`?  
 5. What is the sum of the ages of the men?  
 ```{r}
+student.ages <- data.frame(students=c("Sally", "Tom", "Brian", "Aisha", "Mario"), 
+           ages = c(18, 22, 19, 18, 21))
+student.ages[4, 1:2]
 
+student.ages$gender  <- c("Female", "Male", "Male", "Female", "Male")
+student.ages
+
+male.ages <- c(22, 19, 21)
+male.ages
+
+sum(male.ages)
 ```
 
 ## Loading data from packages
@@ -126,7 +153,7 @@ R as well as many packages have built in datasets. Type `mtcars` into the code c
 
 ```{r packages}
 
-
+mtcars
 ```
 **Question**
 Briefly describe the data in the mtcars dataset. 
